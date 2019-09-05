@@ -1,7 +1,7 @@
 package com.wonder.dailydiary.entity
 
-import android.util.Log
 import org.junit.Assert.*
+import org.junit.Before
 import org.junit.Test
 import java.util.*
 
@@ -12,18 +12,25 @@ import java.util.*
 
 class DiaryTest {
 
+    lateinit var diaryNoImages: Diary
+
+    @Before
+    fun initDiary() {
+        val date = Date(1567615864357) //1567615864357 = 2019-09-05 01:51
+        diaryNoImages = Diary("나의 첫번째 다이어리", "호롤로로롤", 0, date, null)
+    }
+
     @Test
-    fun 필드에서_바로_파라미터값_사용이_되는지_여부() {
+    fun `필드에서 바로 파라미터값 사용이 되는지 여부`() {
 
         //given
-        val date = Date(1567615864357) //1567615864357 = 2019-09-05 01:51
-        val diary = Diary("", "", 0, date, null)
+        val diary = diaryNoImages
 
         //when
         val day = diary.day
 
         //then
-        assertEquals(day,"2019.09.05")
+        assertEquals(day, "2019.09.05")
     }
 
 }
