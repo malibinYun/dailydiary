@@ -17,7 +17,7 @@ class DiaryTest {
     @Before
     fun initDiary() {
         val date = Date(1567615864357) //1567615864357 = 2019-09-05 01:51
-        diaryNoImages = Diary("나의 첫번째 다이어리", "호롤로로롤", 0, date, null)
+        diaryNoImages = Diary(0, "나의 첫번째 다이어리", "호롤로로롤", 0, 1567615864357, null)
     }
 
     @Test

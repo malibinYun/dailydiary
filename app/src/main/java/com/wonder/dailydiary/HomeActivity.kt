@@ -14,5 +14,7 @@ class HomeActivity : AppCompatActivity() {
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_home)
         binding.act = this
+
+
     }
 }
