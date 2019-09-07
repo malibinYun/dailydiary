@@ -2,6 +2,7 @@ package com.wonder.dailydiary.util
 
 import androidx.annotation.DrawableRes
 import com.wonder.dailydiary.R
+import kotlin.random.Random
 
 /**
  * Created By Yun Hyeok
@@ -29,7 +30,11 @@ enum class DefaultImage(val id: Int, @DrawableRes val resource: Int) {
         fun findById(id: Int): DefaultImage {
             return values().first { it.id == id }
         }
+
+        fun getRandomOf(weather: Int): Int {
+            val id = weather + Random.nextInt(1, 3)
+            return values().first { it.id == id }.id
+        }
     }
 
 }
-

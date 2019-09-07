@@ -1,10 +1,12 @@
 package com.wonder.dailydiary.entity
 
 import android.graphics.Bitmap
+import androidx.annotation.DrawableRes
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.Ignore
 import androidx.room.PrimaryKey
+import com.wonder.dailydiary.util.DefaultImage
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -33,7 +35,10 @@ data class Diary(
     val date: Long,
 
     @ColumnInfo(name = "diary_images")
-    val images: List<Bitmap>?
+    val images: List<Bitmap>?,
+
+    @ColumnInfo(name = "diary_default_image")
+    var defaultImageId: Int?
 
 ) {
     @Ignore
@@ -42,14 +47,26 @@ data class Diary(
     @Ignore
     val time: String = SimpleDateFormat("hh시 mm분", Locale.KOREA).format(Date(date))
 
-    init {
+    @Ignore
+    @DrawableRes
+    var defaultImageResource: Int? = null
 
+    init {
+        defaultImageId?.let {
+            defaultImageResource = DefaultImage.findById(it).resource
+        }
+
+        val hasNoImage = images == null && defaultImageId == null
+        if (hasNoImage) {
+            defaultImageId = DefaultImage.getRandomOf(state)
+            defaultImageResource = DefaultImage.findById(defaultImageId!!).resource
+        }
     }
 
     companion object {
-        const val WEATHER_SUNNY = 10
-        const val WEATHER_CLOUD = 11
-        const val WEATHER_RAIN = 12
-        const val WEATHER_SNOW = 13
+        const val WEATHER_SUNNY = 100
+        const val WEATHER_CLOUD = 200
+        const val WEATHER_RAIN = 300
+        const val WEATHER_SNOW = 400
     }
 }
