@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">DailyDiary</string>
+    <string name="cancel">취소</string>
+    <string name="save">저장</string>
 </resources>

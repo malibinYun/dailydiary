@@ -4,9 +4,7 @@
         xmlns:tools="http://schemas.android.com/tools"
         xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
-        <variable
-                name="act"
-                type="com.wonder.dailydiary.HomeActivity"/>
+
     </data>
 
 
@@ -31,5 +29,11 @@
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="0dp" app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/topbar_home_act" android:id="@+id/rv_home_act_dairies"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
