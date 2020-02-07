@@ -27,13 +27,26 @@ enum class DefaultImage(val id: Int, @DrawableRes val resource: Int) {
     SNOWY3(403, R.drawable.default_cover_snowy03);
 
     companion object {
-        fun findById(id: Int): DefaultImage {
-            return values().first { it.id == id }
+        const val WEATHER_SUNNY = 100
+        const val WEATHER_CLOUD = 200
+        const val WEATHER_RAIN = 300
+        const val WEATHER_SNOW = 400
+
+        fun findBy(id: Int): DefaultImage {
+            return matchValueWith(id)
+        }
+
+        fun findResourceBy(id: Int): Int {
+            return matchValueWith(id).resource
         }
 
         fun getRandomOf(weather: Int): Int {
             val id = weather + Random.nextInt(1, 3)
-            return values().first { it.id == id }.id
+            return matchValueWith(id).id
+        }
+
+        private fun matchValueWith(id: Int): DefaultImage {
+            return values().first { it.id == id }
         }
     }
 

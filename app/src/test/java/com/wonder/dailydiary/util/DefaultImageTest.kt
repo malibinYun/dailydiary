@@ -1,6 +1,5 @@
 package com.wonder.dailydiary.util
 
-import com.wonder.dailydiary.R
 import com.wonder.dailydiary.entity.Diary
 import org.junit.Assert.*
 import org.junit.Test
@@ -17,7 +16,7 @@ class DefaultImageTest {
         val defaultImage = DefaultImage.RAINY2
 
         // when
-        val testImage = DefaultImage.findById(302) // Rainy2 의 실제 아이디 정수 값
+        val testImage = DefaultImage.findBy(302) // Rainy2 의 실제 아이디 정수 값
 
         // then
         assertEquals(defaultImage, testImage)

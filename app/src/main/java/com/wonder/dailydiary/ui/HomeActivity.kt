@@ -1,8 +1,9 @@
-package com.wonder.dailydiary
+package com.wonder.dailydiary.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
+import com.wonder.dailydiary.R
 import com.wonder.dailydiary.databinding.ActivityHomeBinding
 
 class HomeActivity : AppCompatActivity() {

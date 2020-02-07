@@ -40,33 +40,4 @@ data class Diary(
     @ColumnInfo(name = "diary_default_image")
     var defaultImageId: Int?
 
-) {
-    @Ignore
-    val day: String = SimpleDateFormat("yyyy.MM.dd", Locale.KOREA).format(Date(date))
-
-    @Ignore
-    val time: String = SimpleDateFormat("hh시 mm분", Locale.KOREA).format(Date(date))
-
-    @Ignore
-    @DrawableRes
-    var defaultImageResource: Int? = null
-
-    init {
-        defaultImageId?.let {
-            defaultImageResource = DefaultImage.findById(it).resource
-        }
-
-        val hasNoImage = images == null && defaultImageId == null
-        if (hasNoImage) {
-            defaultImageId = DefaultImage.getRandomOf(state)
-            defaultImageResource = DefaultImage.findById(defaultImageId!!).resource
-        }
-    }
-
-    companion object {
-        const val WEATHER_SUNNY = 100
-        const val WEATHER_CLOUD = 200
-        const val WEATHER_RAIN = 300
-        const val WEATHER_SNOW = 400
-    }
-}
+)

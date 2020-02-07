@@ -12,7 +12,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@android:color/white"
-            tools:context=".DiaryWriteActivity">
+            tools:context=".ui.WriteDiaryActivity">
 
         <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/topbar"
